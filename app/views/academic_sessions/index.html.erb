@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Academic Sessions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>From</th>
+      <th>To</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @academic_sessions.each do |academic_session| %>
+      <tr>
+        <td><%= academic_session.title %></td>
+        <td><%= academic_session.from %></td>
+        <td><%= academic_session.to %></td>
+        <td><%= link_to 'Show', academic_session %></td>
+        <td><%= link_to 'Edit', edit_academic_session_path(academic_session) %></td>
+        <td><%= link_to 'Destroy', academic_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Academic Session', new_academic_session_path %>

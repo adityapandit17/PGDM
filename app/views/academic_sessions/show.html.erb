@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @academic_session.title %>
+</p>
+
+<p>
+  <strong>From:</strong>
+  <%= @academic_session.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @academic_session.to %>
+</p>
+
+<%= link_to 'Edit', edit_academic_session_path(@academic_session) %> |
+<%= link_to 'Back', academic_sessions_path %>
