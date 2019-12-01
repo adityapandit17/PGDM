@@ -25,7 +25,7 @@
     <%= form.label :subject %>
     <br>
     <% Subject.pluck(:name).each do |subject| %>
-      <%= form.check_box :subject_ids, { multiple: true }, subject %>
+      <%= form.check_box :subject_ids, { multiple: true }, subject, false %>
       <%= subject %>
       <br>
     <% end %>

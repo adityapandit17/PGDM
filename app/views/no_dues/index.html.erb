@@ -3,7 +3,7 @@
 
   <h1>No Dues</h1>
 
-  <table>
+  <table class="table">
     <thead>
       <tr>
         <th>User</th>
@@ -16,9 +16,9 @@
     <tbody>
       <% @no_dues.each do |no_due| %>
         <tr>
-          <td><%= no_due.user %></td>
-          <td><%= no_due.academic_session %></td>
-          <td><%= no_due.subject_ids %></td>
+          <td><%= no_due.user.username %></td>
+          <td><%= no_due.academic_session.title %></td>
+          <td><%= no_due.subject_ids.join(',') %></td>
           <td><%= link_to 'Show', no_due %></td>
           <td><%= link_to 'Edit', edit_no_due_path(no_due) %></td>
           <td><%= link_to 'Destroy', no_due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
