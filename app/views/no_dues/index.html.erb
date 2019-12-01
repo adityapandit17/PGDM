@@ -1,31 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>No Dues</h1>
+  <h1>No Dues</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Academic session</th>
-      <th>Subject ids</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @no_dues.each do |no_due| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= no_due.user %></td>
-        <td><%= no_due.academic_session %></td>
-        <td><%= no_due.subject_ids %></td>
-        <td><%= link_to 'Show', no_due %></td>
-        <td><%= link_to 'Edit', edit_no_due_path(no_due) %></td>
-        <td><%= link_to 'Destroy', no_due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>User</th>
+        <th>Academic session</th>
+        <th>Subject ids</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @no_dues.each do |no_due| %>
+        <tr>
+          <td><%= no_due.user %></td>
+          <td><%= no_due.academic_session %></td>
+          <td><%= no_due.subject_ids %></td>
+          <td><%= link_to 'Show', no_due %></td>
+          <td><%= link_to 'Edit', edit_no_due_path(no_due) %></td>
+          <td><%= link_to 'Destroy', no_due, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New No Due', new_no_due_path %>
+  <br>
+
+  <%= link_to 'New No Due', new_no_due_path, class: "btn btn-primary" %>
+
+</div>
