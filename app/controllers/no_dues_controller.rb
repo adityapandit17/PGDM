@@ -69,6 +69,6 @@ class NoDuesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def no_due_params
-      params.require(:no_due).permit(:user_id, :academic_session_id, :subject_ids)
+      params.require(:no_due).permit(:user_id, :academic_session_id, subject_ids: [])
     end
 end
