@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @no_due.user %>
+</p>
+
+<p>
+  <strong>Academic session:</strong>
+  <%= @no_due.academic_session %>
+</p>
+
+<p>
+  <strong>Subject ids:</strong>
+  <%= @no_due.subject_ids %>
+</p>
+
+<%= link_to 'Edit', edit_no_due_path(@no_due) %> |
+<%= link_to 'Back', no_dues_path %>

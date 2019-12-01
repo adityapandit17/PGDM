@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  academic_session: one
+  subject_ids: 
+
+two:
+  user: two
+  academic_session: two
+  subject_ids: 

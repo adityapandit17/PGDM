@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_30_115237) do
+ActiveRecord::Schema.define(version: 2019_12_01_120710) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "academic_sessions", force: :cascade do |t|
     t.string "title"
@@ -20,19 +23,29 @@ ActiveRecord::Schema.define(version: 2019_11_30_115237) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "no_dues", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "academic_session_id"
+    t.string "subject_ids", array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["academic_session_id"], name: "index_no_dues_on_academic_session_id"
+    t.index ["user_id"], name: "index_no_dues_on_user_id"
+  end
+
   create_table "subjects", force: :cascade do |t|
     t.string "name"
     t.string "code"
     t.string "faculty"
-    t.integer "academic_session_id"
+    t.bigint "academic_session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["academic_session_id"], name: "index_subjects_on_academic_session_id"
   end
 
   create_table "user_academic_sessions", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "academic_session_id"
+    t.bigint "user_id"
+    t.bigint "academic_session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["academic_session_id"], name: "index_user_academic_sessions_on_academic_session_id"
@@ -52,4 +65,9 @@ ActiveRecord::Schema.define(version: 2019_11_30_115237) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "no_dues", "academic_sessions"
+  add_foreign_key "no_dues", "users"
+  add_foreign_key "subjects", "academic_sessions"
+  add_foreign_key "user_academic_sessions", "academic_sessions"
+  add_foreign_key "user_academic_sessions", "users"
 end

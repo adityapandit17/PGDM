@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :no_dues
   resources :subjects
   resources :academic_sessions
   get 'welcome/index'

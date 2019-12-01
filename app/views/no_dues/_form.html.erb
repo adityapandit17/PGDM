@@ -1,0 +1,32 @@
+<%= form_with(model: no_due, local: true) do |form| %>
+  <% if no_due.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(no_due.errors.count, "error") %> prohibited this no_due from being saved:</h2>
+
+      <ul>
+      <% no_due.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :academic_session_id %>
+    <%= form.text_field :academic_session_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject_ids %>
+    <%= form.text_field :subject_ids %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module NoDuesHelper
+end
